@@ -6,6 +6,7 @@ import NFTGallery from "./components/NFTGallery"
 import SearchBar from "./components/SearchBar"
 import FilterSidebar from "./components/FilterSidebar"
 import MintNFTOverlay from "./components/MintNFTOverlay"
+import { motion } from "framer-motion"
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -38,12 +39,14 @@ export default function Home() {
               >
                 Your Carbon Offsets
               </Link>
-              <button
+              <motion.button
                 className="bg-green-500 text-gray-900 hover:bg-green-400 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200"
                 onClick={() => setShowMintOverlay(true)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Mint NFT
-              </button>
+              </motion.button>
               <button className="bg-green-500 text-gray-900 hover:bg-green-400 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                 Sign In
               </button>
