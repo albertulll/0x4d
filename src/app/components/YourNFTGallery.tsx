@@ -33,16 +33,27 @@ const yourCarbonCreditNFTs = [
 
 interface YourNFTGalleryProps {
   searchTerm: string
+  filters: {
+    location: string
+    accreditation: string
+  }
 }
 
-export default function YourNFTGallery({ searchTerm }: YourNFTGalleryProps) {
-  const filteredNFTs = yourCarbonCreditNFTs.filter((nft) => nft.title.toLowerCase().includes(searchTerm.toLowerCase()))
+export default function YourNFTGallery({ searchTerm, filters }: YourNFTGalleryProps) {
+  const filteredNFTs = yourCarbonCreditNFTs.filter(
+    (nft) =>
+      nft.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      (filters.location === "" || nft.location.toLowerCase().includes(filters.location.toLowerCase())) &&
+      (filters.accreditation === "" || nft.accreditedBy === filters.accreditation),
+  )
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {filteredNFTs.map((nft) => (
-        <YourNFTCard key={nft.id} nft={nft} />
-      ))}
+    <div className="flex-1">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredNFTs.map((nft) => (
+          <YourNFTCard key={nft.id} nft={nft} />
+        ))}
+      </div>
     </div>
   )
 }

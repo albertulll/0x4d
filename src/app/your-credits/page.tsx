@@ -2,9 +2,15 @@
 import { useState } from "react"
 import Link from "next/link"
 import YourNFTGallery from "../components/YourNFTGallery"
+import SearchBar from "../components/SearchBar"
+import FilterSidebar from "../components/FilterSidebar"
 
 export default function YourCredits() {
   const [searchTerm, setSearchTerm] = useState("")
+  const [filters, setFilters] = useState({
+    location: "",
+    accreditation: "",
+  })
 
   return (
     <main className="min-h-screen bg-gray-900">
@@ -39,8 +45,10 @@ export default function YourCredits() {
           <p className="mt-2 text-green-200">Manage and redeem your carbon credits</p>
         </div>
       </header>
-      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <YourNFTGallery searchTerm={searchTerm} />
+      <SearchBar onSearch={setSearchTerm} />
+      <div className="flex max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <FilterSidebar onFilterChange={setFilters} />
+        <YourNFTGallery searchTerm={searchTerm} filters={filters} />
       </div>
     </main>
   )

@@ -20,10 +20,9 @@ export default function Home() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <Link href="/" className="text-green-400 text-xl font-bold">
-                Carbon Credit NFTs
-              </Link>
-              <p className="mt-2 text-green-200">Tokenized Environmental Impact</p>              
-            </div>
+              Tokenized Environmental Impact
+              </Link>     
+            </div>    
             <div className="flex items-center">
               <Link href="/" className="text-green-400 hover:text-green-300 px-3 py-2 rounded-md text-sm font-medium">
                 Marketplace
