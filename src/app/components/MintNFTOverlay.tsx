@@ -64,7 +64,7 @@ export default function MintNFTOverlay({ isOpen, onClose }: MintNFTOverlayProps)
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ type: "spring", damping: 15, stiffness: 300 }}
-            className="bg-gray-800 p-8 rounded-lg shadow-xl max-w-2xl w-full m-4"
+            className="bg-gray-800 p-8 rounded-2xl shadow-xl max-w-2xl w-full m-4"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-center mb-6">
@@ -84,7 +84,7 @@ export default function MintNFTOverlay({ isOpen, onClose }: MintNFTOverlayProps)
                     id="title"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    className="w-full px-3 py-2 rounded-md bg-gray-700 border border-gray-600 text-white focus:border-green-500 focus:ring-2 focus:ring-green-500 transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl bg-gray-700 border border-gray-600 text-white focus:border-green-500 focus:ring-2 focus:ring-green-500 transition-all duration-200 shadow-inner"
                     required
                   />
                 </div>
@@ -97,7 +97,7 @@ export default function MintNFTOverlay({ isOpen, onClose }: MintNFTOverlayProps)
                     id="offsetAmount"
                     value={offsetAmount}
                     onChange={(e) => setOffsetAmount(e.target.value)}
-                    className="w-full px-3 py-2 rounded-md bg-gray-700 border border-gray-600 text-white focus:border-green-500 focus:ring-2 focus:ring-green-500 transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl bg-gray-700 border border-gray-600 text-white focus:border-green-500 focus:ring-2 focus:ring-green-500 transition-all duration-200 shadow-inner"
                     required
                   />
                 </div>
@@ -109,7 +109,7 @@ export default function MintNFTOverlay({ isOpen, onClose }: MintNFTOverlayProps)
                     id="projectType"
                     value={projectType}
                     onChange={(e) => setProjectType(e.target.value)}
-                    className="w-full px-3 py-2 rounded-md bg-gray-700 border border-gray-600 text-white focus:border-green-500 focus:ring-2 focus:ring-green-500 transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl bg-gray-700 border border-gray-600 text-white focus:border-green-500 focus:ring-2 focus:ring-green-500 transition-all duration-200 shadow-inner"
                     required
                   >
                     <option value="">Select a project type</option>
@@ -130,7 +130,7 @@ export default function MintNFTOverlay({ isOpen, onClose }: MintNFTOverlayProps)
                     id="location"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
-                    className="w-full px-3 py-2 rounded-md bg-gray-700 border border-gray-600 text-white focus:border-green-500 focus:ring-2 focus:ring-green-500 transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl bg-gray-700 border border-gray-600 text-white focus:border-green-500 focus:ring-2 focus:ring-green-500 transition-all duration-200 shadow-inner"
                     required
                   />
                 </div>
@@ -143,7 +143,7 @@ export default function MintNFTOverlay({ isOpen, onClose }: MintNFTOverlayProps)
                     id="accreditedBy"
                     value={accreditedBy}
                     onChange={(e) => setAccreditedBy(e.target.value)}
-                    className="w-full px-3 py-2 rounded-md bg-gray-700 border border-gray-600 text-white focus:border-green-500 focus:ring-2 focus:ring-green-500 transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl bg-gray-700 border border-gray-600 text-white focus:border-green-500 focus:ring-2 focus:ring-green-500 transition-all duration-200 shadow-inner"
                     required
                   />
                 </div>
@@ -151,7 +151,7 @@ export default function MintNFTOverlay({ isOpen, onClose }: MintNFTOverlayProps)
                   <label htmlFor="certificate" className="block text-sm font-medium text-gray-300 mb-1">
                     Upload Certificate
                   </label>
-                  <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-600 border-dashed rounded-md hover:border-green-500 transition-colors duration-200">
+                  <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-600 border-dashed rounded-xl hover:border-green-500 transition-all duration-200">
                     <div className="space-y-1 text-center">
                       <Upload className="mx-auto h-12 w-12 text-gray-400" />
                       <div className="flex text-sm text-gray-400">
@@ -178,7 +178,7 @@ export default function MintNFTOverlay({ isOpen, onClose }: MintNFTOverlayProps)
               <div className="flex justify-end">
                 <motion.button
                   type="submit"
-                  className="px-6 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-200"
+                  className="px-6 py-3 bg-green-500 text-white rounded-xl hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   disabled={isSubmitting || isSuccess}
@@ -191,7 +191,7 @@ export default function MintNFTOverlay({ isOpen, onClose }: MintNFTOverlayProps)
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-4 p-4 bg-green-500 bg-opacity-20 border border-green-500 rounded-md flex items-center"
+                className="mt-4 p-4 bg-green-500 bg-opacity-20 border border-green-500 rounded-xl flex items-center"
               >
                 <CheckCircle className="w-6 h-6 text-green-500 mr-2" />
                 <span className="text-green-400">NFT successfully minted!</span>

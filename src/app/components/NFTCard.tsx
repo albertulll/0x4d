@@ -31,7 +31,7 @@ export default function NFTCard({ nft }: NFTCardProps) {
   const Icon = projectTypeIcons[nft.projectType as keyof typeof projectTypeIcons] || Leaf
 
   return (
-    <div className="glass-effect rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20 flex flex-col h-full">
+    <div className="glass-effect rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20 flex flex-col h-full transform hover:scale-105">
       <div className="relative aspect-square">
         <Image
           src={nft.image || "/placeholder.svg"}
@@ -63,7 +63,7 @@ export default function NFTCard({ nft }: NFTCardProps) {
         <p className="text-green-400 font-semibold mb-2 text-xl">Price: {nft.price}</p>
         <div className="mt-auto">
           <button
-            className="w-full bg-green-500 text-gray-900 font-semibold py-3 px-4 rounded-md hover:bg-green-400 transition-colors duration-300"
+            className="w-full bg-green-500 text-gray-900 font-semibold py-3 px-4 rounded-xl hover:bg-green-400 transition-all duration-300 transform hover:scale-105"
             onClick={() => console.log(`Buying ${nft.offsetAmount} offsets from ${nft.title}`)}
           >
             Buy Now

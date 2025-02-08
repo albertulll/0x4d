@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <nav className="glass-effect sticky top-0 z-10">
+      <nav className="glass-effect sticky top-0 z-10 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -40,14 +40,14 @@ export default function Home() {
                 Your Carbon Offsets
               </Link>
               <motion.button
-                className="bg-green-500 text-gray-900 hover:bg-green-400 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                className="bg-green-500 text-gray-900 hover:bg-green-400 px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
                 onClick={() => setShowMintOverlay(true)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Mint NFT
               </motion.button>
-              <button className="bg-green-500 text-gray-900 hover:bg-green-400 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+              <button className="bg-green-500 text-gray-900 hover:bg-green-400 px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
                 Sign In
               </button>
             </div>

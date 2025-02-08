@@ -42,7 +42,7 @@ export default function YourNFTCard({ nft }: YourNFTCardProps) {
   return (
     <div
       ref={cardRef}
-      className="bg-glass rounded-lg overflow-hidden border border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/50 flex flex-col h-full relative"
+      className="bg-glass rounded-2xl overflow-hidden border border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/50 flex flex-col h-full relative transform hover:scale-105"
     >
       <div className="relative aspect-square">
         <Image
@@ -74,7 +74,7 @@ export default function YourNFTCard({ nft }: YourNFTCardProps) {
         <p className="text-gray-300 mb-2">Offsets: {nft.offsetAmount} tons CO₂e</p>
         <div className="mt-auto">
           <button
-            className="w-full bg-primary text-primary-foreground font-semibold py-2 px-4 rounded hover:bg-primary/90 transition-all duration-300"
+            className="w-full bg-primary text-primary-foreground font-semibold py-2 px-4 rounded-xl hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
             onClick={() => setShowRedeemOptions(true)}
           >
             Redeem
@@ -83,10 +83,10 @@ export default function YourNFTCard({ nft }: YourNFTCardProps) {
       </div>
       {showRedeemOptions && (
         <div
-          className="absolute inset-0 bg-gray-900/95 flex flex-col justify-end transition-all duration-300 ease-in-out animate-slide-up"
+          className="absolute inset-0 bg-gray-900/95 flex flex-col justify-end transition-all duration-300 ease-in-out animate-slide-up rounded-2xl"
           onClick={() => setShowRedeemOptions(false)}
         >
-          <div className="bg-gray-800 p-6 rounded-t-lg shadow-xl" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-gray-800 p-6 rounded-t-2xl shadow-xl" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-xl font-semibold text-green-400">{nft.title}</h3>
               <button onClick={() => setShowRedeemOptions(false)} className="text-gray-400 hover:text-white">
@@ -96,19 +96,19 @@ export default function YourNFTCard({ nft }: YourNFTCardProps) {
             <p className="text-gray-300 mb-4">Choose how you want to redeem your carbon offsets:</p>
             <button
               onClick={() => handleRedeem("retire")}
-              className="w-full mb-2 bg-secondary text-secondary-foreground font-semibold py-2 px-4 rounded hover:bg-secondary/90 transition-all duration-300"
+              className="w-full mb-2 bg-secondary text-secondary-foreground font-semibold py-2 px-4 rounded-xl hover:bg-secondary/90 transition-all duration-300 transform hover:scale-105"
             >
               Retire Offset
             </button>
             <button
               onClick={() => handleRedeem("tax")}
-              className="w-full mb-2 bg-secondary text-secondary-foreground font-semibold py-2 px-4 rounded hover:bg-secondary/90 transition-all duration-300"
+              className="w-full mb-2 bg-secondary text-secondary-foreground font-semibold py-2 px-4 rounded-xl hover:bg-secondary/90 transition-all duration-300 transform hover:scale-105"
             >
               Redeem for Tax Credit
             </button>
             <button
               onClick={() => handleRedeem("sell")}
-              className="w-full mb-2 bg-secondary text-secondary-foreground font-semibold py-2 px-4 rounded hover:bg-secondary/90 transition-all duration-300"
+              className="w-full mb-2 bg-secondary text-secondary-foreground font-semibold py-2 px-4 rounded-xl hover:bg-secondary/90 transition-all duration-300 transform hover:scale-105"
             >
               Sell NFT
             </button>
