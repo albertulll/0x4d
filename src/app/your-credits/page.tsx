@@ -4,6 +4,7 @@ import Link from "next/link"
 import YourNFTGallery from "../components/YourNFTGallery"
 import SearchBar from "../components/SearchBar"
 import FilterSidebar from "../components/FilterSidebar"
+import MintNFTOverlay from "../components/MintNFTOverlay"
 
 export default function YourCredits() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -11,6 +12,7 @@ export default function YourCredits() {
     location: "",
     accreditation: "",
   })
+  const [showMintOverlay, setShowMintOverlay] = useState(false)
 
   return (
     <main className="min-h-screen">
@@ -35,6 +37,12 @@ export default function YourCredits() {
               >
                 Your Carbon Offsets
               </Link>
+              <button
+                className="bg-green-500 text-gray-900 hover:bg-green-400 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                onClick={() => setShowMintOverlay(true)}
+              >
+                Mint NFT
+              </button>
               <button className="bg-green-500 text-gray-900 hover:bg-green-400 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                 Sign In
               </button>
@@ -55,6 +63,7 @@ export default function YourCredits() {
         <FilterSidebar onFilterChange={setFilters} />
         <YourNFTGallery searchTerm={searchTerm} filters={filters} />
       </div>
+      <MintNFTOverlay isOpen={showMintOverlay} onClose={() => setShowMintOverlay(false)} />
     </main>
   )
 }

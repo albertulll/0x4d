@@ -5,6 +5,7 @@ import Link from "next/link"
 import NFTGallery from "./components/NFTGallery"
 import SearchBar from "./components/SearchBar"
 import FilterSidebar from "./components/FilterSidebar"
+import MintNFTOverlay from "./components/MintNFTOverlay"
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -12,6 +13,7 @@ export default function Home() {
     location: "",
     accreditation: "",
   })
+  const [showMintOverlay, setShowMintOverlay] = useState(false)
 
   return (
     <main className="min-h-screen">
@@ -34,8 +36,14 @@ export default function Home() {
                 href="/your-credits"
                 className="text-green-400 hover:text-green-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
               >
-                Your Carbon Credits
+                Your Carbon Offsets
               </Link>
+              <button
+                className="bg-green-500 text-gray-900 hover:bg-green-400 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                onClick={() => setShowMintOverlay(true)}
+              >
+                Mint NFT
+              </button>
               <button className="bg-green-500 text-gray-900 hover:bg-green-400 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                 Sign In
               </button>
@@ -58,6 +66,7 @@ export default function Home() {
           <NFTGallery searchTerm={searchTerm} filters={filters} />
         </div>
       </div>
+      <MintNFTOverlay isOpen={showMintOverlay} onClose={() => setShowMintOverlay(false)} />
     </main>
   )
 }
