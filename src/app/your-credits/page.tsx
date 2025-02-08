@@ -19,7 +19,7 @@ export default function YourCredits() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <Link href="/" className="text-green-400 text-xl font-bold">
-                Carbon Credit NFTs
+                Carbon Offset NFTs
               </Link>
             </div>
             <div className="flex items-center space-x-4">
@@ -33,7 +33,7 @@ export default function YourCredits() {
                 href="/your-credits"
                 className="text-green-400 hover:text-green-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
               >
-                Your Carbon Credits
+                Your Carbon Offsets
               </Link>
               <button className="bg-green-500 text-gray-900 hover:bg-green-400 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                 Sign In
@@ -44,9 +44,9 @@ export default function YourCredits() {
       </nav>
       <header className="py-16 px-4 sm:px-6 lg:px-8 animate-fade-in">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-5xl font-extrabold text-green-400 mb-4 text-balance">Your Carbon Credits</h1>
+          <h1 className="text-5xl font-extrabold text-green-400 mb-4 text-balance">Your Carbon Offsets</h1>
           <p className="text-xl text-gray-300 max-w-2xl">
-            Manage and redeem your carbon credits to make a positive impact on the environment.
+            Manage and redeem your carbon offsets to make a positive impact on the environment.
           </p>
         </div>
       </header>

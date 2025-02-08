@@ -1,8 +1,8 @@
-import { useState } from "react"
 import YourNFTCard from "./YourNFTCard"
+import { useState } from "react"
 
 // This is placeholder data. Replace it with real user's carbon credit NFT data from your platform.
-const yourCarbonCreditNFTs = [
+const yourCarbonOffsetNFTs = [
   {
     id: 1,
     title: "Amazon Rainforest Preservation",
@@ -44,7 +44,7 @@ interface YourNFTGalleryProps {
 
 export default function YourNFTGallery({ searchTerm, filters }: YourNFTGalleryProps) {
   const [selectedNFTId, setSelectedNFTId] = useState<number | null>(null)
-  const filteredNFTs = yourCarbonCreditNFTs.filter(
+  const filteredNFTs = yourCarbonOffsetNFTs.filter(
     (nft) =>
       nft.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
       (filters.location === "" || nft.location.toLowerCase().includes(filters.location.toLowerCase())) &&

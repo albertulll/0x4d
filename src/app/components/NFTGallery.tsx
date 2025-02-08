@@ -2,7 +2,7 @@
 import NFTCard from "./NFTCard"
 
 
-const carbonCreditNFTs = [
+const carbonOffsetNFTs = [
   {
     id: 1,
     title: "Amazon Rainforest Preservation",
@@ -80,7 +80,7 @@ interface NFTGalleryProps {
   }
   
   export default function NFTGallery({ searchTerm, filters }: NFTGalleryProps) {
-    const filteredNFTs = carbonCreditNFTs.filter(
+    const filteredNFTs = carbonOffsetNFTs.filter(
       (nft) =>
         nft.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
         (filters.location === "" || nft.location.toLowerCase().includes(filters.location.toLowerCase())) &&

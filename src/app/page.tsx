@@ -20,7 +20,7 @@ export default function Home() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <Link href="/" className="text-green-400 text-xl font-bold">
-                Carbon Credit NFTs
+                Carbon Offset NFTs
               </Link>
             </div>
             <div className="flex items-center space-x-4">
@@ -45,17 +45,18 @@ export default function Home() {
       </nav>
       <header className="py-16 px-4 sm:px-6 lg:px-8 animate-fade-in">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-5xl font-extrabold text-green-400 mb-4 text-balance">Carbon Credit Marketplace</h1>
+          <h1 className="text-5xl font-extrabold text-green-400 mb-4 text-balance">Carbon Offset Marketplace</h1>
           <p className="text-xl text-gray-300 max-w-2xl">
-            Browse and purchase carbon credits to offset your environmental impact and contribute to a sustainable
-            future.
+            Browse and purchase carbon offsets to reduce your environmental impact
           </p>
         </div>
       </header>
       <SearchBar onSearch={setSearchTerm} />
       <div className="flex max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <FilterSidebar onFilterChange={setFilters} />
-        <NFTGallery searchTerm={searchTerm} filters={filters} />
+        <div className="flex-1">
+          <NFTGallery searchTerm={searchTerm} filters={filters} />
+        </div>
       </div>
     </main>
   )

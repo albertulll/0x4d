@@ -3,11 +3,11 @@ import { useState, useRef } from "react"
 import Image from "next/image"
 import { Leaf, Wind, Droplets, Sprout, TreeDeciduous, Sun, MapPin, Award, X, Hash } from "lucide-react"
 
-interface CarbonCreditNFT {
+interface CarbonOffsetNFT {
   id: number
   title: string
   image: string
-  creditAmount: string
+  offsetAmount: string
   projectType: string
   location: string
   accreditedBy: string
@@ -15,7 +15,7 @@ interface CarbonCreditNFT {
 }
 
 interface YourNFTCardProps {
-  nft: CarbonCreditNFT
+  nft: CarbonOffsetNFT
 }
 
 const projectTypeIcons = {
@@ -34,7 +34,7 @@ export default function YourNFTCard({ nft }: YourNFTCardProps) {
 
   const handleRedeem = (action: "retire" | "tax" | "sell") => {
     console.log(
-      `${action === "retire" ? "Retiring" : action === "tax" ? "Redeeming for tax credit" : "Selling"} ${nft.creditAmount} credits from ${nft.title}`,
+      `${action === "retire" ? "Retiring" : action === "tax" ? "Redeeming for tax credit" : "Selling"} ${nft.offsetAmount} offsets from ${nft.title}`,
     )
     setShowRedeemOptions(false)
   }
@@ -71,7 +71,7 @@ export default function YourNFTCard({ nft }: YourNFTCardProps) {
           <Hash className="w-5 h-5 text-green-400 mr-2" />
           <span className="text-gray-300 text-sm break-all">{nft.nftAddress}</span>
         </div>
-        <p className="text-gray-300 mb-2">Credits: {nft.creditAmount} tons CO₂e</p>
+        <p className="text-gray-300 mb-2">Offsets: {nft.offsetAmount} tons CO₂e</p>
         <div className="mt-auto">
           <button
             className="w-full bg-primary text-primary-foreground font-semibold py-2 px-4 rounded hover:bg-primary/90 transition-all duration-300"
@@ -93,12 +93,12 @@ export default function YourNFTCard({ nft }: YourNFTCardProps) {
                 <X className="w-6 h-6" />
               </button>
             </div>
-            <p className="text-gray-300 mb-4">Choose how you want to redeem your carbon credits:</p>
+            <p className="text-gray-300 mb-4">Choose how you want to redeem your carbon offsets:</p>
             <button
               onClick={() => handleRedeem("retire")}
               className="w-full mb-2 bg-secondary text-secondary-foreground font-semibold py-2 px-4 rounded hover:bg-secondary/90 transition-all duration-300"
             >
-              Retire Credit
+              Retire Offset
             </button>
             <button
               onClick={() => handleRedeem("tax")}

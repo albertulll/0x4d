@@ -2,20 +2,20 @@
 import Image from "next/image"
 import { Leaf, Wind, Droplets, Sprout, TreeDeciduous, Sun, MapPin, Award, Hash } from "lucide-react"
 
-interface CarbonCreditNFT {
+interface CarbonOffsetNFT {
   id: number
   title: string
   image: string
-  creditAmount: string
+  offsetAmount: string
   price: string
   projectType: string
   location: string
   accreditedBy: string
-  nftAddress: string // New field
+  nftAddress: string
 }
 
 interface NFTCardProps {
-  nft: CarbonCreditNFT
+  nft: CarbonOffsetNFT
 }
 
 const projectTypeIcons = {
@@ -57,16 +57,14 @@ export default function NFTCard({ nft }: NFTCardProps) {
         </div>
         <div className="flex items-center mb-3">
           <Hash className="w-5 h-5 text-green-400 mr-2" />
-          <span className="text-gray-300 text-sm truncate" title={nft.nftAddress}>
-            {nft.nftAddress}
-          </span>
+          <span className="text-gray-300 text-sm break-all">{nft.nftAddress}</span>
         </div>
-        <p className="text-gray-300 mb-4">Credits: {nft.creditAmount} tons CO₂e</p>
-        <p className="text-green-400 font-semibold mb-4 text-xl">Price: {nft.price}</p>
+        <p className="text-gray-300 mb-2">Offsets: {nft.offsetAmount} tons CO₂e</p>
+        <p className="text-green-400 font-semibold mb-2 text-xl">Price: {nft.price}</p>
         <div className="mt-auto">
           <button
             className="w-full bg-green-500 text-gray-900 font-semibold py-3 px-4 rounded-md hover:bg-green-400 transition-colors duration-300"
-            onClick={() => console.log(`Buying ${nft.creditAmount} credits from ${nft.title}`)}
+            onClick={() => console.log(`Buying ${nft.offsetAmount} offsets from ${nft.title}`)}
           >
             Buy Now
           </button>
