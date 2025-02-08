@@ -16,7 +16,7 @@ const yourCarbonOffsetNFTs = [
   {
     id: 2,
     title: "Wind Farm Initiative",
-    image: "/images/carbon_credit_3.jpeg",
+    image: "/images/carbon_credit_1.jpeg",
     creditAmount: "15",
     projectType: "Renewable Energy",
     location: "Texas, USA",
@@ -26,7 +26,7 @@ const yourCarbonOffsetNFTs = [
   {
     id: 3,
     title: "Ocean Cleanup Project",
-    image: "/images/carbon_credit_3.jpeg",
+    image: "/images/carbon_credit_2.jpeg",
     creditAmount: "5",
     projectType: "Ocean Conservation",
     location: "Bali, Indonesia",
