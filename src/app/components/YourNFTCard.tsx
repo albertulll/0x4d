@@ -1,5 +1,5 @@
 "use client"
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef } from "react"
 import Image from "next/image"
 import { Leaf, Wind, Droplets, Sprout, TreeDeciduous, Sun, MapPin, Award, X, Hash } from "lucide-react"
 
@@ -11,7 +11,7 @@ interface CarbonCreditNFT {
   projectType: string
   location: string
   accreditedBy: string
-  nftAddress: string // Add this line
+  nftAddress: string
 }
 
 interface YourNFTCardProps {
@@ -29,31 +29,21 @@ const projectTypeIcons = {
 
 export default function YourNFTCard({ nft }: YourNFTCardProps) {
   const [showRedeemOptions, setShowRedeemOptions] = useState(false)
-  const popupRef = useRef<HTMLDivElement>(null)
+  const cardRef = useRef<HTMLDivElement>(null)
   const Icon = projectTypeIcons[nft.projectType as keyof typeof projectTypeIcons] || Leaf
 
-  const handleRedeem = (action: "retire" | "tax") => {
+  const handleRedeem = (action: "retire" | "tax" | "sell") => {
     console.log(
-      `${action === "retire" ? "Retiring" : "Redeeming for tax credit"} ${nft.creditAmount} credits from ${nft.title}`,
+      `${action === "retire" ? "Retiring" : action === "tax" ? "Redeeming for tax credit" : "Selling"} ${nft.creditAmount} credits from ${nft.title}`,
     )
     setShowRedeemOptions(false)
   }
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
-        setShowRedeemOptions(false)
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [])
-
   return (
-    <div className="bg-glass rounded-lg overflow-hidden border border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/50 flex flex-col h-full">
+    <div
+      ref={cardRef}
+      className="bg-glass rounded-lg overflow-hidden border border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/50 flex flex-col h-full relative"
+    >
       <div className="relative aspect-square">
         <Image
           src={nft.image || "/placeholder.svg"}
@@ -82,8 +72,6 @@ export default function YourNFTCard({ nft }: YourNFTCardProps) {
           <span className="text-gray-300 text-sm break-all">{nft.nftAddress}</span>
         </div>
         <p className="text-gray-300 mb-2">Credits: {nft.creditAmount} tons CO₂e</p>
-        {/* <p className="text-gray-400 text-sm mb-4 break-all">NFT Address: {nft.nftAddress}</p> */}{" "}
-        {/* Remove this line */}
         <div className="mt-auto">
           <button
             className="w-full bg-primary text-primary-foreground font-semibold py-2 px-4 rounded hover:bg-primary/90 transition-all duration-300"
@@ -94,8 +82,11 @@ export default function YourNFTCard({ nft }: YourNFTCardProps) {
         </div>
       </div>
       {showRedeemOptions && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div ref={popupRef} className="bg-gray-800 p-6 rounded-lg shadow-xl max-w-sm w-full">
+        <div
+          className="absolute inset-0 bg-gray-900/95 flex flex-col justify-end transition-all duration-300 ease-in-out animate-slide-up"
+          onClick={() => setShowRedeemOptions(false)}
+        >
+          <div className="bg-gray-800 p-6 rounded-t-lg shadow-xl" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-xl font-semibold text-green-400">{nft.title}</h3>
               <button onClick={() => setShowRedeemOptions(false)} className="text-gray-400 hover:text-white">
@@ -114,6 +105,12 @@ export default function YourNFTCard({ nft }: YourNFTCardProps) {
               className="w-full mb-2 bg-secondary text-secondary-foreground font-semibold py-2 px-4 rounded hover:bg-secondary/90 transition-all duration-300"
             >
               Redeem for Tax Credit
+            </button>
+            <button
+              onClick={() => handleRedeem("sell")}
+              className="w-full mb-2 bg-secondary text-secondary-foreground font-semibold py-2 px-4 rounded hover:bg-secondary/90 transition-all duration-300"
+            >
+              Sell NFT
             </button>
           </div>
         </div>

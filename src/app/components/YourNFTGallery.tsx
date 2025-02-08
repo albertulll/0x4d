@@ -1,3 +1,4 @@
+import { useState } from "react"
 import YourNFTCard from "./YourNFTCard"
 
 // This is placeholder data. Replace it with real user's carbon credit NFT data from your platform.
@@ -33,7 +34,6 @@ const yourCarbonCreditNFTs = [
     nftAddress: "0x1234...5678",
   },
 ]
-
 interface YourNFTGalleryProps {
   searchTerm: string
   filters: {
@@ -43,6 +43,7 @@ interface YourNFTGalleryProps {
 }
 
 export default function YourNFTGallery({ searchTerm, filters }: YourNFTGalleryProps) {
+  const [selectedNFTId, setSelectedNFTId] = useState<number | null>(null)
   const filteredNFTs = yourCarbonCreditNFTs.filter(
     (nft) =>
       nft.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
@@ -54,7 +55,13 @@ export default function YourNFTGallery({ searchTerm, filters }: YourNFTGalleryPr
     <div className="flex-1">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredNFTs.map((nft) => (
-          <YourNFTCard key={nft.id} nft={nft} />
+          <YourNFTCard
+            key={nft.id}
+            nft={nft}
+            isSelected={selectedNFTId === nft.id}
+            onSelect={() => setSelectedNFTId(nft.id)}
+            onClose={() => setSelectedNFTId(null)}
+          />
         ))}
       </div>
     </div>
