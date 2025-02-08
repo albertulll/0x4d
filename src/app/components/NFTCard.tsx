@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image"
-import { Leaf, Wind, Droplets, Sprout, TreeDeciduous, Sun, MapPin, Award } from "lucide-react"
+import { Leaf, Wind, Droplets, Sprout, TreeDeciduous, Sun, MapPin, Award, Hash } from "lucide-react"
 
 interface CarbonCreditNFT {
   id: number
@@ -11,6 +11,7 @@ interface CarbonCreditNFT {
   projectType: string
   location: string
   accreditedBy: string
+  nftAddress: string // New field
 }
 
 interface NFTCardProps {
@@ -30,7 +31,7 @@ export default function NFTCard({ nft }: NFTCardProps) {
   const Icon = projectTypeIcons[nft.projectType as keyof typeof projectTypeIcons] || Leaf
 
   return (
-    <div className="relative bg-glass rounded-lg overflow-hidden border border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/50 flex flex-col h-full">
+    <div className="glass-effect rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20 flex flex-col h-full">
       <div className="relative aspect-square">
         <Image
           src={nft.image || "/placeholder.svg"}
@@ -40,28 +41,34 @@ export default function NFTCard({ nft }: NFTCardProps) {
           className="object-cover transition-transform duration-300 ease-in-out hover:scale-105"
         />
       </div>
-      <div className="p-4 flex-grow flex flex-col">
-        <h2 className="text-xl font-semibold text-green-400 mb-2">{nft.title}</h2>
-        <div className="flex items-center mb-2">
+      <div className="p-6 flex-grow flex flex-col">
+        <h2 className="text-2xl font-bold text-green-400 mb-4">{nft.title}</h2>
+        <div className="flex items-center mb-3">
           <Icon className="w-5 h-5 text-green-400 mr-2" />
           <span className="text-gray-300">{nft.projectType}</span>
         </div>
-        <div className="flex items-center mb-2">
+        <div className="flex items-center mb-3">
           <MapPin className="w-5 h-5 text-green-400 mr-2" />
           <span className="text-gray-300">{nft.location}</span>
         </div>
-        <div className="flex items-center mb-2">
+        <div className="flex items-center mb-3">
           <Award className="w-5 h-5 text-green-400 mr-2" />
           <span className="text-gray-300">{nft.accreditedBy}</span>
         </div>
-        <p className="text-gray-300 mb-2">Credits: {nft.creditAmount} tons CO₂e</p>
-        <p className="text-green-400 font-semibold mb-2 text-lg">Price: {nft.price}</p>
+        <div className="flex items-center mb-3">
+          <Hash className="w-5 h-5 text-green-400 mr-2" />
+          <span className="text-gray-300 text-sm truncate" title={nft.nftAddress}>
+            {nft.nftAddress}
+          </span>
+        </div>
+        <p className="text-gray-300 mb-4">Credits: {nft.creditAmount} tons CO₂e</p>
+        <p className="text-green-400 font-semibold mb-4 text-xl">Price: {nft.price}</p>
         <div className="mt-auto">
           <button
-            className="w-full bg-primary text-primary-foreground font-semibold py-2 px-4 rounded hover:bg-primary/90 transition-all duration-300"
+            className="w-full bg-green-500 text-gray-900 font-semibold py-3 px-4 rounded-md hover:bg-green-400 transition-colors duration-300"
             onClick={() => console.log(`Buying ${nft.creditAmount} credits from ${nft.title}`)}
           >
-            Buy
+            Buy Now
           </button>
         </div>
       </div>

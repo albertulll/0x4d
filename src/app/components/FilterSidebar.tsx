@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { ChevronDown, MapPin, Award } from "lucide-react"
 
 interface FilterSidebarProps {
   onFilterChange: (filters: { location: string; accreditation: string }) => void
@@ -9,43 +10,83 @@ interface FilterSidebarProps {
 export default function FilterSidebar({ onFilterChange }: FilterSidebarProps) {
   const [location, setLocation] = useState("")
   const [accreditation, setAccreditation] = useState("")
+  const [isLocationOpen, setIsLocationOpen] = useState(true)
+  const [isAccreditationOpen, setIsAccreditationOpen] = useState(true)
 
   useEffect(() => {
     onFilterChange({ location, accreditation })
   }, [location, accreditation, onFilterChange])
 
   return (
-    <div className="w-64 mr-6">
-      <h2 className="text-xl font-semibold text-green-400 mb-4">Filters</h2>
-      <div className="mb-4">
-        <label htmlFor="location" className="block text-green-200 mb-2">
-          Location
-        </label>
-        <input
-          type="text"
-          id="location"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-          className="w-full p-2 rounded-lg bg-gray-800 text-green-400 border border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500"
-          placeholder="Enter location..."
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="accreditation" className="block text-green-200 mb-2">
-          Accreditation
-        </label>
-        <select
-          id="accreditation"
-          value={accreditation}
-          onChange={(e) => setAccreditation(e.target.value)}
-          className="w-full p-2 rounded-lg bg-gray-800 text-green-400 border border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500"
+    <div className="w-72 mr-8 glass-effect p-6 rounded-lg animate-fade-in">
+      <h2 className="text-2xl font-semibold text-green-400 mb-6">Filters</h2>
+
+      <div className="mb-6">
+        <button
+          className="flex items-center justify-between w-full text-left text-green-300 font-medium mb-2"
+          onClick={() => setIsLocationOpen(!isLocationOpen)}
         >
-          <option value="">All</option>
-          <option value="Verra">Verra</option>
-          <option value="Gold Standard">Gold Standard</option>
-          <option value="ACR">ACR Carbon</option>
-        </select>
+          <span className="flex items-center">
+            <MapPin className="w-5 h-5 mr-2" />
+            Location
+          </span>
+          <ChevronDown
+            className={`w-5 h-5 transition-transform duration-300 ${isLocationOpen ? "transform rotate-180" : ""}`}
+          />
+        </button>
+        {isLocationOpen && (
+          <div className="mt-2 transition-all duration-300 ease-in-out">
+            <input
+              type="text"
+              id="location"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              className="w-full p-3 rounded-md bg-gray-800 text-green-400 border border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300"
+              placeholder="Enter location..."
+            />
+          </div>
+        )}
       </div>
+
+      <div className="mb-6">
+        <button
+          className="flex items-center justify-between w-full text-left text-green-300 font-medium mb-2"
+          onClick={() => setIsAccreditationOpen(!isAccreditationOpen)}
+        >
+          <span className="flex items-center">
+            <Award className="w-5 h-5 mr-2" />
+            Accreditation
+          </span>
+          <ChevronDown
+            className={`w-5 h-5 transition-transform duration-300 ${isAccreditationOpen ? "transform rotate-180" : ""}`}
+          />
+        </button>
+        {isAccreditationOpen && (
+          <div className="mt-2 transition-all duration-300 ease-in-out">
+            <select
+              id="accreditation"
+              value={accreditation}
+              onChange={(e) => setAccreditation(e.target.value)}
+              className="w-full p-3 rounded-md bg-gray-800 text-green-400 border border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300 appearance-none"
+            >
+              <option value="">All</option>
+              <option value="Verra">Verra</option>
+              <option value="Gold Standard">Gold Standard</option>
+              <option value="ACR">ACR Carbon</option>
+            </select>
+          </div>
+        )}
+      </div>
+
+      <button
+        onClick={() => {
+          setLocation("")
+          setAccreditation("")
+        }}
+        className="w-full bg-gray-700 text-green-400 font-medium py-2 px-4 rounded-md hover:bg-gray-600 transition-colors duration-300"
+      >
+        Clear Filters
+      </button>
     </div>
   )
 }

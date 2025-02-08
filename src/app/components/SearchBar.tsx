@@ -16,19 +16,19 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
   }
 
   return (
-    <form onSubmit={handleSearch} className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+    <form onSubmit={handleSearch} className="max-w-3xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
       <div className="relative">
         <input
           type="text"
-          placeholder="Search carbon credits by name..."
+          placeholder="Search carbon credits..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full p-2 pl-10 rounded-lg bg-gray-800 text-green-400 border border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full p-4 pl-12 rounded-full bg-gray-800 text-green-400 border border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300"
         />
-        <Search className="absolute left-3 top-2.5 h-5 w-5 text-green-400" />
+        <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-green-400" />
         <button
           type="submit"
-          className="absolute right-2 top-2 bg-green-500 text-black px-3 py-1 rounded-md text-sm font-medium"
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-green-500 text-gray-900 px-6 py-2 rounded-full text-sm font-medium hover:bg-green-400 transition-colors duration-300"
         >
           Search
         </button>

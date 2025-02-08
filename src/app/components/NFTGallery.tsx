@@ -1,7 +1,7 @@
 "use client"
 import NFTCard from "./NFTCard"
 
-// This is placeholder data. Replace it with real carbon credit NFT data from your platform.
+
 const carbonCreditNFTs = [
   {
     id: 1,
@@ -12,6 +12,7 @@ const carbonCreditNFTs = [
     projectType: "Reforestation",
     location: "Manaus, Brazil",
     accreditedBy: "Verra",
+    nftAddress: "0x1234...5678", 
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ const carbonCreditNFTs = [
     projectType: "Renewable Energy",
     location: "Texas, USA",
     accreditedBy: "Gold Standard",
+    nftAddress: "0xabcd...ef01"
   },
   {
     id: 3,
@@ -32,6 +34,7 @@ const carbonCreditNFTs = [
     projectType: "Ocean Conservation",
     location: "Bali, Indonesia",
     accreditedBy: "Verra",
+    nftAddress: "0x1234...5678", 
   },
   {
     id: 4,
@@ -42,6 +45,7 @@ const carbonCreditNFTs = [
     projectType: "Sustainable Farming",
     location: "Punjab, India",
     accreditedBy: "ACR Carbon",
+    nftAddress: "0x2468...1357",
   },
   {
     id: 5,
@@ -52,6 +56,7 @@ const carbonCreditNFTs = [
     projectType: "Urban Greening",
     location: "Melbourne, Australia",
     accreditedBy: "Gold Standard",
+    nftAddress: "0x1357...2468",
   },
   {
     id: 6,
@@ -62,6 +67,7 @@ const carbonCreditNFTs = [
     projectType: "Solar Energy",
     location: "Andalusia, Spain",
     accreditedBy: "Verra",
+    nftAddress: "0xabcd...ef01",
   },
 ]
 
