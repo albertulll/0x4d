@@ -1,3 +1,4 @@
+"use client"
 import NFTCard from "./NFTCard"
 
 // This is placeholder data. Replace it with real carbon credit NFT data from your platform.
@@ -65,29 +66,30 @@ const carbonCreditNFTs = [
 ]
 
 interface NFTGalleryProps {
-  searchTerm: string
-  filters: {
-    location: string
-    accreditation: string
+    searchTerm: string
+    filters: {
+      location: string
+      accreditation: string
+    }
   }
-}
-
-export default function NFTGallery({ searchTerm, filters }: NFTGalleryProps) {
-  const filteredNFTs = carbonCreditNFTs.filter(
-    (nft) =>
-      nft.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      (filters.location === "" || nft.location.toLowerCase().includes(filters.location.toLowerCase())) &&
-      (filters.accreditation === "" || nft.accreditedBy === filters.accreditation),
-  )
-
-  return (
-    <div className="flex-1">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredNFTs.map((nft) => (
-          <NFTCard key={nft.id} nft={nft} />
-        ))}
+  
+  export default function NFTGallery({ searchTerm, filters }: NFTGalleryProps) {
+    const filteredNFTs = carbonCreditNFTs.filter(
+      (nft) =>
+        nft.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        (filters.location === "" || nft.location.toLowerCase().includes(filters.location.toLowerCase())) &&
+        (filters.accreditation === "" || nft.accreditedBy === filters.accreditation),
+    )
+  
+    return (
+      <div className="flex-1">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredNFTs.map((nft) => (
+            <NFTCard key={nft.id} nft={nft} />
+          ))}
+        </div>
       </div>
-    </div>
-  )
-}
-
+    )
+  }
+  
+  

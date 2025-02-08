@@ -1,17 +1,10 @@
 "use client"
-
 import { useState } from "react"
 import Link from "next/link"
-import NFTGallery from "./components/NFTGallery"
-import SearchBar from "./components/SearchBar"
-import FilterSidebar from "./components/FilterSidebar"
+import YourNFTGallery from "../components/YourNFTGallery"
 
-export default function Home() {
+export default function YourCredits() {
   const [searchTerm, setSearchTerm] = useState("")
-  const [filters, setFilters] = useState({
-    location: "",
-    accreditation: "",
-  })
 
   return (
     <main className="min-h-screen bg-gray-900">
@@ -22,7 +15,6 @@ export default function Home() {
               <Link href="/" className="text-green-400 text-xl font-bold">
                 Carbon Credit NFTs
               </Link>
-              <p className="mt-2 text-green-200">Tokenized Environmental Impact</p>              
             </div>
             <div className="flex items-center">
               <Link href="/" className="text-green-400 hover:text-green-300 px-3 py-2 rounded-md text-sm font-medium">
@@ -43,14 +35,12 @@ export default function Home() {
       </nav>
       <header className="bg-gray-800 shadow">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-green-400">Carbon Credit Marketplace</h1>
-          <p className="mt-2 text-green-200">Browse and purchase carbon credits</p>
+          <h1 className="text-3xl font-bold text-green-400">Your Carbon Credits</h1>
+          <p className="mt-2 text-green-200">Manage and redeem your carbon credits</p>
         </div>
       </header>
-      <SearchBar onSearch={setSearchTerm} />
-      <div className="flex max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <FilterSidebar onFilterChange={setFilters} />
-        <NFTGallery searchTerm={searchTerm} filters={filters} />
+      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <YourNFTGallery searchTerm={searchTerm} />
       </div>
     </main>
   )
