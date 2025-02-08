@@ -1,7 +1,7 @@
 "use client"
 import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
-import { Leaf, Wind, Droplets, Sprout, TreeDeciduous, Sun, MapPin, Award, X } from "lucide-react"
+import { Leaf, Wind, Droplets, Sprout, TreeDeciduous, Sun, MapPin, Award, X, Hash } from "lucide-react"
 
 interface CarbonCreditNFT {
   id: number
@@ -11,6 +11,7 @@ interface CarbonCreditNFT {
   projectType: string
   location: string
   accreditedBy: string
+  nftAddress: string // Add this line
 }
 
 interface YourNFTCardProps {
@@ -76,7 +77,13 @@ export default function YourNFTCard({ nft }: YourNFTCardProps) {
           <Award className="w-5 h-5 text-green-400 mr-2" />
           <span className="text-gray-300">{nft.accreditedBy}</span>
         </div>
+        <div className="flex items-center mb-2">
+          <Hash className="w-5 h-5 text-green-400 mr-2" />
+          <span className="text-gray-300 text-sm break-all">{nft.nftAddress}</span>
+        </div>
         <p className="text-gray-300 mb-2">Credits: {nft.creditAmount} tons CO₂e</p>
+        {/* <p className="text-gray-400 text-sm mb-4 break-all">NFT Address: {nft.nftAddress}</p> */}{" "}
+        {/* Remove this line */}
         <div className="mt-auto">
           <button
             className="w-full bg-primary text-primary-foreground font-semibold py-2 px-4 rounded hover:bg-primary/90 transition-all duration-300"

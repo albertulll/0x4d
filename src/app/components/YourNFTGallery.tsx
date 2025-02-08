@@ -10,6 +10,7 @@ const yourCarbonCreditNFTs = [
     projectType: "Reforestation",
     location: "Manaus, Brazil",
     accreditedBy: "Verra",
+    nftAddress: "0x1234...5678",
   },
   {
     id: 2,
@@ -19,6 +20,7 @@ const yourCarbonCreditNFTs = [
     projectType: "Renewable Energy",
     location: "Texas, USA",
     accreditedBy: "Gold Standard",
+    nftAddress: "0x1234...5678",
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ const yourCarbonCreditNFTs = [
     projectType: "Ocean Conservation",
     location: "Bali, Indonesia",
     accreditedBy: "Verra",
+    nftAddress: "0x1234...5678",
   },
 ]
 
