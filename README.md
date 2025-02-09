@@ -1,19 +1,66 @@
-# Carbon Offset Marketplace
+# Carbon DApp
 
-A decentralized platform for tokenizing and trading carbon offsets using ERC1155 NFTs. This marketplace enables transparent and efficient trading of carbon credits while ensuring the integrity of offset verification and redemption processes.
+## Introduction
 
-## Features
+Carbon DApp is a decentralized application (DApp) designed to mint, trade, and redeem carbon offsets on-chain. By leveraging blockchain technology, it ensures transparency, prevents double spending, and enhances the efficiency of the voluntary carbon market.
 
-- Carbon offset tokenization using ERC1155 standard
-- Marketplace for buying and selling carbon offset tokens
-- Redemption mechanism for carbon credits
-- Transparent tracking of offset origins and verification
-- User-friendly interface for token management
+More on the technical side is in [GUIDE.md](./GUIDE.md)
 
-## Usage
+## What is a Carbon Offset?
 
-1. Connect your Web3 wallet to the platform
-2. Browse available carbon offset tokens
-3. Purchase tokens using cryptocurrency
-4. Manage your offset portfolio
-5. Redeem tokens to claim carbon credits
+A carbon offset represents a reduction in carbon emissions, often in the form of a certificate detailing the amount of CO2 removed or reduced.
+
+### Example:
+
+**Eco-Farms** plants 10,000 trees, offsetting emissions by 10 tons. The project registers with a carbon registry and receives a certificate. **McDonald’s** purchases the certificate, claiming to offset 10 tons of CO2.
+
+## Issues with the Current System
+
+### Lack of Transparency
+
+Credits are traded over-the-counter with no public data on price and quality, making verification difficult.
+
+### Double Spending
+
+Firms can register with multiple credit registries and receive duplicate certificates, allowing the same credit to be sold multiple times.
+
+### Fragmentation
+
+Carbon credits issued in one jurisdiction are often ineligible for tax breaks or regulatory benefits in another jurisdiction.
+
+## Carbon DApp: The Solution
+
+Carbon DApp addresses these issues by:
+
+- Representing carbon offsets as **ERC-1155** tokens.
+- Linking regulatory disclosures and public reports via **Flare** to ensure authenticity.
+- Allowing users to mint, trade, and redeem carbon offsets transparently on-chain.
+
+## ERC-1155 Token Structure
+
+- **Public Data**: Includes regulatory, registry data, and project documents.
+- **Flare Oracle Contract**: Links real-world data to on-chain assets.
+- **ERC-1155 Token Contract**: Facilitates minting, trading, and redemption of tokenized offsets.
+
+## Comparison: Tokenized Offsets vs. Traditional Systems
+
+| Feature                  | Carbon DApp                      | Existing Systems              |
+| ------------------------ | -------------------------------- | ----------------------------- |
+| **Market Structure**     | Transparent, global market       | Fragmented intermediaries     |
+| **Asset Representation** | Singular token per offset        | Potential duplication         |
+| **Verification**         | Public, immutable disclosures    | Limited transparency          |
+| **Integration**          | Seamless with compliance markets | Poor regulatory compatibility |
+
+## Implementation Strategy
+
+### Capital Markets
+
+Carbon DApp is the **first full-fledged public capital market** for climate initiatives.
+
+### Carbon Registries
+
+Newly registered projects are tokenized and integrated with existing registries like **Verra** and **Gold Standard**.
+
+### UN Agencies
+
+The platform aligns with **UNCTAD, UNFCCC, UNDP**, and other agencies to establish digital standards for on-chain carbon credit trading.
