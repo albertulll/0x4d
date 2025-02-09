@@ -6,8 +6,8 @@ import type React from "react" // Import React
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Carbon Credit NFT Marketplace",
-  description: "Buy, sell, and manage carbon credit NFTs",
+  title: "Carbon Offset NFT Marketplace",
+  description: "Buy, sell, and manage carbon offsets NFTs",
 }
 
 export default function RootLayout({
