@@ -23,7 +23,7 @@ export default function Home() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <Link href="/" className="text-green-400 text-xl font-bold">
-                Carbon Offset NFTs
+                Carbon DApp
               </Link>
             </div>
             <div className="flex items-center space-x-4">
